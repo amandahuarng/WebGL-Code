@@ -1,69 +1,39 @@
-# Homework 2
-
-## CSCI 155 Computer Graphics, Spring 2019
+# WebGl Work
 
 ### Purpose
 
-This homework implements
-- interaction with the rendered graphics
-- rendering of 3D graphics
-- applying transformations
-- a data structure to store topology
+I attached some code that I wrote in Javascript using WebGL to demonstrate my knowledge of computer graphics. Here are some simple renderings. 
 
-### Background
+### Renderings
 
-For this homework, you should
-- be comfortable with setting up and rendering in WebGL
-- be sufficiently adept at programming to find out the correct JavaScript syntax for desired operations, e.g. displaying text on an HTML page
-- be able to launch and inspect the JavaScript console of your browser for debugging purposes.
-- have a basic understanding of data structures
+To see each rendering, clone the repository and click on the html files, which will fire up on your browser with the desired rendering. The corresponding js file holds the WebGL code that renders each item.
 
-### The Problem Set
+#### colors.html
+A program that displays a triangle and presents the following rendering options to the user. The
+display of the triangle’s boundary and interior can be toggled. The RGB color of each vertex can be set
+interactively and the user can choose the shading - flat or interpolated - for the boundary and for the
+interior. Choosing flat shading sets the color of all vertices equal to that of the first vertex.
 
-The problems are in `main.tex` which is to be compiled using a LaTeX compiler.
+#### tetrix.html
+The tetrix is the 3D version of the Sierpinski triangle and is also referred to as the Sierpinski tetrahedron. 
+This program allows you to render the tetrix at a specified recursion level. The rendered tetrix is animated and is continuously rotating about an axis. The user can toggle between rotation about the x, y, or z axis.
 
-### Grading
+#### galore.html
+A program that interactively draws triangles and
+quadrilaterals. The program draws a point at the location
+of each mouse click. It supports two modes – triangle mode
+(default) and quad mode. In triangle mode, every 3 consecutive points are drawn as a triangle. In quad mode, every 4
+consecutive points are drawn as a quadrilateral. Each drawn
+shape is assigned a different color assigned randomly.
+Furthermore, the following interaction is supported.
+– Pressing r or R clears the screen and resets to default.
+– Pressing t or T toggles between the drawing modes.
 
-The marks shown in the problem set are for correctly solving the problems. Correctness is one of the parameters on which the assignment will be graded. Other parameters are indicated in `rubric.csv`.
-
-### Submission
-
-There are 3 parts to the submission.
-
-#### 1. Problem Set
-
-Each problem specifies the names of the files to be submitted for it. Please make sure your submitted files have the indicated names. Any files in your GitHub repository with these names at the time of the deadline will be considered as your submission. Your submissions will be peer reviewed so please do not include identifying information in the submission. Your code will be run by a peer on their machine so make sure to submit _all_ files, e.g. the `Common` folder, necessary for your submission to run. Do _not_ include large mesh files.
-
-_Deadline_: 5p.m. on March 4 on GitHub.
-
-#### 2. Feedback Form
-Every student has to submit feedback on the homework at [`Sakai -> Tests & Quizzes`](https://sakai.claremont.edu/x/u9zokH). It is recommended that you fill this as soon as you submit your solutions but the deadline is 2 days later just in case.
-
-_Deadline_: 5p.m. on March 6 on Sakai.
-
-#### 3. HW 2A : Peer Review
-
-Every student will be assigned 2 submissions for grading according to `rubric.csv`. See [`Sakai -> Assignments`](https://sakai.claremont.edu/x/DTuAzD) for details on the peer review.
-
-_Deadline_: 5p.m. on March 8 on Sakai.
-
-### Tips
-
-- Do not hard code the canvas size in your code.
-- Do not include identifying information.
-- There is no late submission. Submit whatever you have by the deadline.
-- Failure to turn in anu of the above submissions will result in a withholding of marks for the homework.
-- Clearly indicate your program's controls on the page, e.g. by displaying some informative text.
-- Clearly state on the page any bonus functionality that you have attempted.
-- Bonus functionality will be graded as all or nothing, i.e. you get full 100% or 0%.
-- Include all necessary files except large mesh files.
-- viel Spaß!
-
-### Discussion
-
-There is a lot to handle and there are bound to be confusions and queries. Please share them using the following avenues
-- talk to your teammate
-- post in the [class forum](https://workplace.facebook.com/groups/354167592088891/)
-- discuss with your peers in the [discussion sessions](https://workplace.facebook.com/groups/354167592088891/permalink/382523642586619/)
-- talk to me in our meeting
-- talk to me after class
+#### reflex.html
+A game to test the user’s reflexes. The player has to click on a polygon that appear for a brief
+period at a random location. After a fixed inerval the polygon disappears and reappears at another
+location. If the user clicks inside the polygon before it disappears, her score increases, and the polygon
+disappears and reappears at another location. If she clicks on a blank location, e.g. the polygon there
+has already disappeared, her score decreases. If she has not clicked at all for three concescutive polygons,
+her score decreases. The player starts the game with a score of 0 and the game ends when her score
+becomes negative.
