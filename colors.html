@@ -1,0 +1,193 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    attribute vec4 vColor;
+    varying vec4 fColor;
+
+void
+main()
+{
+    fColor = vColor;
+    gl_Position = vPosition;
+}
+</script>
+
+  <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    varying vec4 fColor;
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="./common/webgl-utils.js"></script>
+<script type="text/javascript" src="./common/initShaders.js"></script>
+<script type="text/javascript" src="./common/MV.js"></script>
+<script type="text/javascript" src="./interpolation.js"></script>
+<script type="text/javascript" src="./colors.js"></script>
+</head>
+
+<div style="float:left; margin:0; width:50%;">
+    <strong>Boundary:</strong>
+    <br>
+    <button id="boundary" onclick="showBoundary()">Hide</button>
+    <button id="flatBoundaryButton">Flat</button>
+    <br>
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Bottom Left Vertex</strong>
+        <br>
+        <div id="sliderV1Red">
+            Red 0 <input id="BoundV1Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV1Green">
+            Green 0 <input id="BoundV1Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV1Blue">
+            Blue 0 <input id="BoundV1Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Top Vertex</strong>
+        <br>
+        <div id="sliderV2Red">
+            Red 0 <input id="BoundV2Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV2Green">
+            Green 0 <input id="BoundV2Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV2Blue">
+            Blue 0 <input id="BoundV2Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Bottom Right Vertex</strong>
+        <br>
+        <div id="sliderV3Red">
+            Red 0 <input id="BoundV3Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV3Green">
+            Green 0 <input id="BoundV3Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV3Blue">
+            Blue 0 <input id="BoundV3Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+    <button id="setBColors">Set Colors</button> <br>
+</div>
+
+<div style="float:left; margin:0; width:50%;">
+    <strong>Interior:</strong>
+    <br>
+    <button id="interior" onclick="showInterior()">Hide</button>
+    <button id="flatInteriorButton">Flat</button>
+    <br>
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Bottom Left Vertex</strong>
+        <br>
+        <div id="sliderV1Red">
+            Red 0 <input id="IntV1Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV1Green">
+            Green 0 <input id="IntV1Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV1Blue">
+            Blue 0 <input id="IntV1Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Top Vertex</strong>
+        <br>
+        <div id="sliderV2Red">
+            Red 0 <input id="IntV2Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV2Green">
+            Green 0 <input id="IntV2Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV2Blue">
+            Blue 0 <input id="IntV2Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+
+    <div style="float:left; margin:0; width:33%;">
+        <strong>Bottom Right Vertex</strong>
+        <br>
+        <div id="sliderV3Red">
+            Red 0 <input id="IntV3Red" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV3Green">
+            Green 0 <input id="IntV3Green" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+        <div id="sliderV3Blue">
+            Blue 0 <input id="IntV3Blue" type="range"
+            min="0" max="255" step="5" value="0"
+            />
+            255
+        </div>
+    </div>
+    <button id="setIColors">Set Colors</button> <br>
+</div>
+
+<body>
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
