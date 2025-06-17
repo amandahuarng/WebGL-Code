@@ -36,6 +36,14 @@ function init()
 
         document.getElementById("slider").onchange = function() {
         NumTimesToSubdivide = event.srcElement.value;
+        points = [];
+        colors = [];
+        divideTetra( vertices[0], vertices[1], vertices[2], vertices[3], NumTimesToSubdivide);
+        
+        gl.bindBuffer(gl.ARRAY_BUFFER, cBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(colors), gl.STATIC_DRAW);
+        gl.bindBuffer( gl.ARRAY_BUFFER, vBuffer );
+        gl.bufferData( gl.ARRAY_BUFFER, flatten(points), gl.STATIC_DRAW );
     };
 
     divideTetra( vertices[0], vertices[1], vertices[2], vertices[3],
@@ -158,6 +166,6 @@ function render()
     gl.uniform3fv(thetaLoc, theta);
 
     gl.drawArrays( gl.TRIANGLES, 0, points.length );
-    points = [];
-    requestAnimFrame(init);
+    
+    requestAnimationFrame(render);
 }
